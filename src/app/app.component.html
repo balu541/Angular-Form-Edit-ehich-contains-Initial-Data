@@ -1,0 +1,31 @@
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+    <label>
+      First Name:
+      <input type="text" formControlName="firstName">
+    </label>
+  
+    <label>
+      Last Name:
+      <input type="text" formControlName="lastName">
+    </label>
+    <div class="radio">
+      <label><input type="radio" formControlName="optradio" value="1">Option 1</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" formControlName="optradio" value="2">Option 2</label>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateValue">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  
+  </form>
+  
+<router-outlet></router-outlet>
